@@ -1,24 +1,23 @@
-# README
+## ERDs
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Take 1: http://dbdesigner.net/designer/schema/121354
+- Take 2: http://dbdesigner.net/designer/schema/121922
 
-Things you may want to cover:
+## Models
 
-* Ruby version
+### User
+- email:unique:string e.g. bob@tesla.com
 
-* System dependencies
+### Company
+- name: string
+- domain: string e.g. tesla.com
 
-* Configuration
+### Document
+- company: references
+- name: string
+- content: text
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Permission
+- company: references
+- user: references
+- can_write: boolean
