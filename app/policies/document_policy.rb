@@ -5,6 +5,6 @@ class DocumentPolicy < ApplicationPolicy
        true
     else
        false  
- 
+    end
   end
 end

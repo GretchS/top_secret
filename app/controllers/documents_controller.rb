@@ -10,4 +10,25 @@ class DocumentsController < ApplicationController
    @document = Document.find(params[:id])
    authorize @document
   end
+
+  def edit
+    @document = Document.find(params[:id])
+  end
+
+  def update
+    @document = Document.find(params[:id])
+    if @document.update(document_params)
+      # success, go to #show page
+      redirect_to @document
+    else
+      # error, render the edit forma again
+      render :edit
+    end 
+  end
+
+  private
+    def document_params
+      params.require(:document).permit(:name, :content)
+    end
 end
+
